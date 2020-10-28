@@ -75,7 +75,7 @@ export class StartComponent implements OnInit {
       .attr("dy", "-.75em")
       .attr("x", 500)
       .style("text-anchor", "end")
-      .text("Count Of Persons");
+      .text("Anzahl Personen");
 
     this.svg
       .append("g")
@@ -86,7 +86,7 @@ export class StartComponent implements OnInit {
       .attr("dy", ".75em")
       .attr("y", 6)
       .style("text-anchor", "end")
-      .text("Probability At Least On Positive");
+      .text("Wahrscheinlichkeit für infektiöse Person");
 
     // Output - line
     const lines = this.svg.selectAll("lines")
