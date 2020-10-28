@@ -1,0 +1,78 @@
+    /* You can add global styles to this file, and also import other style files */
+
+    /* latin */
+
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(assets/fonts/Open_Sans/OpenSans-Regular.ttf) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    html.corona, .corona body {
+        height: 100%;
+    }
+
+    .corona body {
+        font-size: 14px;
+        margin: 0;
+        font-family: "Open Sans", "Helvetica Neue", sans-serif;
+        background-color: #efefef;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .corona article {
+        /* background-color: #bbb; */
+        /* background-color: #6699e675; */
+        background-color: #53839650;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .corona header {
+        margin-bottom: 0.5rem;
+        background-color: #0030a194;
+        color: #fff;
+        padding: 2rem 0.5rem;
+    }
+
+    .corona header h1 {
+        margin: 1.25rem 0;
+    }
+
+    .corona h3 {
+        border-left: 5px solid #0030a150;
+        padding-left: 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Chart */
+
+    .corona .axis line {
+        stroke: #001e63;
+        stroke-width: 0.7;
+        shape-rendering: crispEdges;
+    }
+
+    .corona .axis path {
+        stroke-width: 0.7;
+        shape-rendering: crispEdges;
+    }
+
+    .corona .axis text {
+        fill: #001e63;
+        font-family: Georgia;
+        font-size: 120%;
+    }
+
+    .corona path.line {
+        fill: none;
+        stroke-width: 1;
+        stroke: #ed3700;
+    }

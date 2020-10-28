@@ -1,0 +1,121 @@
+<header>
+    <h1>Corona Wahrscheinlichkeiten</h1>
+
+    <em>Im Folgenden eine kurze Überlegung zu der Wahrscheinlichkeit, eine mit Corona infizierte Person zu treffen. Es
+        handelt sich dabei um eine stark vereinfachte Überlegung, welche keinen Anspruch erhebt, die tatsächliche
+        Situation korrekt zu beschreiben. Es werden einige <a href="#assumptions">vereinfachende Annahmen</a>
+        getroffen. Für fundierte Informationen verweisen wir auf entsprechende Angebote, etwa des 
+		<a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html">Robert Koch Instituts</a>.</em>
+</header>
+
+<article>
+    <h2>1. Infektiöse Personen</h2>
+    <p>Nehmen wir zunächst an, die 7-Tage-Inzidenz beträgt
+        <mat-form-field class="number">
+            <input matInput placeholder="Sieben-Tage Inzidenz" [(ngModel)]="Model.sevenDayInzidenz"
+                (ngModelChange)="OnInputChangeHandler()">
+        </mat-form-field>. Das heißt, dass in den letzten 7 Tagen {{Model.sevenDayInzidenz}} Neuinfektionen pro 100.000 Einwohner
+        nachgewiesen wurden.
+    </p>
+    <p>Nehmen wir darüber hinaus an, dass
+        <mat-form-field class="number">
+            <input matInput placeholder="Wahrscheinlichkeit" [(ngModel)]="Model.foundProbability"
+                (ngModelChange)="OnInputChangeHandler()">
+        </mat-form-field> Prozent aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
+        davon ausgehen, dass in den letzten 7 Tagen {{Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de'}} Neuinfektionen pro 100.000
+        Einwohner nicht als solche identifiziert
+        wurden.
+    </p>
+
+    <p>Nehmen wir im Weiteren vereinfacht an, das jede infizierte Person für zwei Wochen infektiös ist. Somit ergeben
+        sich sehr vereinfacht {{2 * Model.sevenDayUnfoundInzidenz | number:'.1-2':'de'}} infektiöse Personen pro 100.000 Einwohner welche
+        nicht als infektiös bekannt
+        sind. Dies entspricht einem Prozentsatz von {{100 * Model.probabilityForUnfoundPositive | number:'.1-2' :'de'}}%.
+    </p>
+
+    <p>Somit können wir vereinfacht davon ausgehen, dass die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person,
+        der wir begegnen, infektiös ist, {{100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de'}}% beträgt.</p>
+</article>
+
+<article>
+    <h2>2. Mehrere Personen</h2>
+
+    <p>Basierend auf der zuvor berechneten Wahrscheinlichkeit von
+        {{100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de'}}% dass eine zufällig ausgewählte Person, der wir
+        begegnen, infektiös ist ergeben sich die folgenden Wahrscheinlichkeiten, dass mindestends
+        eine Person in einer Gruppe infektiös ist.</p>
+
+    <p>Die Wahrscheinlichkeit dafür, dass mindestens eine von 10 Personen infektiös ist, beträgt
+        {{100 * Model.atLeastOnePositiveOutOf10 | number:'.1-2':'de'}}%.</p>
+    <p>Die Wahrscheinlichkeit dafür, dass mindestens eine von 50 Personen infektiös ist, beträgt
+        {{100 * Model.atLeastOnePositiveOutOf50 | number:'.1-2':'de'}}%.</p>
+
+    <div class="chart-probabilities"></div>
+
+    <p>Entsprechende Wahrscheinlichkeiten betreffen etwa ein Restaurant mit 50 Personen, ein öffentliches Verkehrsmittel
+        mit 50 Personen oder auch 50 Personen, die im Verlauf des Tages getroffen werden.</p>
+</article>
+
+<article>
+    <h2><span id="assumptions">Fehler und Vereinfachungen in den Annahmen</span></h2>
+    <p>Die vorliegende Rechnung und das zugrunde liegende Model sind sehr stark vereinfacht. Dabei führen einige der
+        Vereinfachungen zu einer Überschätzung und andere zu einer Unterschätzung der tatsächlichen Wahrscheinlichkeit.
+        Im Folgenden einige der Vereinfachungen:
+    <p>
+    <ul>
+        <li>Personen mit Symptomen isolieren sich möglicherweise auch ohne Test.</li>
+        <li>Personen mit positivem Test waren möglicherweise bereits infektiös bevor sie sich isoliert haben.</li>
+        <li>Es wird vereinfacht angenommen, dass jede Person die gleiche Wahrscheinlichkeit hat, infektiös zu sein.</li>
+    </ul>
+</article>
+
+<article>
+    <h2>Impressum</h2>
+    <h3>Angaben gemäß § 5 TMG</h3>
+    <address>
+        Simon Siefert<br />
+        Rabenkopfstraße 6<br />
+        79102 Freiburg<br />
+        GERMANY
+    </address>
+    <h3>Kontakt</h3>
+    <address>
+        E-Mail: info@covid-probability.net<br />
+    </address>
+    <!-- <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
+    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+    teilzunehmen. -->
+    <h3>Haftung für Inhalte</h3>
+    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+    verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
+    gespeicherte fremde Informationen
+    zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur
+    Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine
+    diesbezügliche
+    Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden
+    von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+    <!-- <h3>Haftung für Links</h3>
+    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb
+    können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets
+    der jeweilige Anbieter oder
+    Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+    Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente
+    inhaltliche Kontrolle der
+    verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden
+    von Rechtsverletzungen werden wir derartige Links umgehend entfernen. -->
+    <h3>Urheberrecht</h3>
+    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+    Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes
+    bedürfen der schriftlichen
+    Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+    kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden
+    die Urheberrechte
+    Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
+    Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
+    Rechtsverletzungen werden wir
+    derartige Inhalte umgehend entfernen. Quelle: https://www.e-recht24.de/impressum-generator.html
+
+    <h3>Bildverwendung</h3>
+    <p>Header / Hintergrundbild von mattthewafflecat / pixabay
+    </p>
+</article>

@@ -1,0 +1,16 @@
+header {
+    background-image: url('/assets/images/corona.jpg');
+    background-size: cover;
+}
+
+mat-form-field.number {
+    width: 50px;
+}
+
+mat-form-field.number input {
+    text-align: right;
+}
+
+.chart-probabilities {
+    margin: 0.5rem;
+}
