@@ -12,15 +12,13 @@
     <h2>1. Infektiöse Personen</h2>
     <p>Nehmen wir zunächst an, die 7-Tage-Inzidenz beträgt
         <mat-form-field class="number">
-            <input matInput placeholder="Sieben-Tage Inzidenz" [(ngModel)]="Model.sevenDayInzidenz"
-                (ngModelChange)="OnInputChangeHandler()">
+            <input matInput [(ngModel)]="Model.sevenDayInzidenz" (ngModelChange)="OnInputChangeHandler()">
         </mat-form-field>. Das heißt, dass in den letzten 7 Tagen {{Model.sevenDayInzidenz}} Neuinfektionen pro 100.000 Einwohner
         nachgewiesen wurden.
     </p>
     <p>Nehmen wir darüber hinaus an, dass
         <mat-form-field class="number">
-            <input matInput placeholder="Wahrscheinlichkeit" [(ngModel)]="Model.foundProbability"
-                (ngModelChange)="OnInputChangeHandler()">
+            <input matInput [(ngModel)]="Model.foundProbability" (ngModelChange)="OnInputChangeHandler()">
         </mat-form-field> Prozent aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
         davon ausgehen, dass in den letzten 7 Tagen {{Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de'}} Neuinfektionen pro 100.000
         Einwohner nicht als solche identifiziert
