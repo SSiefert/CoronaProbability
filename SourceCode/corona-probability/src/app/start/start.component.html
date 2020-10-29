@@ -13,42 +13,42 @@
     <p>Nehmen wir zunächst an, die 7-Tage-Inzidenz beträgt
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.sevenDayInzidenz" (ngModelChange)="OnInputChangeHandler()">
-        </mat-form-field>. Das heißt, dass in den letzten 7 Tagen {{Model.sevenDayInzidenz}} Neuinfektionen pro 100.000 Einwohner
-        nachgewiesen wurden.
+        </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span>. Das heißt, 
+		dass in den letzten 7 Tagen {{Model.isValid ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro 100.000 Einwohner nachgewiesen wurden.
     </p>
     <p>Nehmen wir darüber hinaus an, dass
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.foundProbability" (ngModelChange)="OnInputChangeHandler()">
-        </mat-form-field> Prozent aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
-        davon ausgehen, dass in den letzten 7 Tagen {{Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de'}} Neuinfektionen pro 100.000
+        </mat-form-field><span [hidden]="IsFoundProbabilityValid()" style="color: red"> Ungültige Eingabe</span> Prozent aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
+        davon ausgehen, dass in den letzten 7 Tagen {{Model.isValid ? (Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de') : "X"}} Neuinfektionen pro 100.000
         Einwohner nicht als solche identifiziert
         wurden.
     </p>
 
     <p>Nehmen wir im Weiteren vereinfacht an, das jede infizierte Person für zwei Wochen infektiös ist. Somit ergeben
-        sich sehr vereinfacht {{2 * Model.sevenDayUnfoundInzidenz | number:'.1-2':'de'}} infektiöse Personen pro 100.000 Einwohner welche
+        sich sehr vereinfacht {{Model.isValid ? (2 * Model.sevenDayUnfoundInzidenz | number:'.1-2':'de') : "X"}} infektiöse Personen pro 100.000 Einwohner welche
         nicht als infektiös bekannt
-        sind. Dies entspricht einem Prozentsatz von {{100 * Model.probabilityForUnfoundPositive | number:'.1-2' :'de'}}%.
+        sind. Dies entspricht einem Prozentsatz von {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2' :'de') : "X"}}%.
     </p>
 
     <p>Somit können wir vereinfacht davon ausgehen, dass die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person,
-        der wir begegnen, infektiös ist, {{100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de'}}% beträgt.</p>
+        der wir begegnen, infektiös ist, {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% beträgt.</p>
 </article>
 
 <article>
     <h2>2. Mehrere Personen</h2>
 
     <p>Basierend auf der zuvor berechneten Wahrscheinlichkeit von
-        {{100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de'}}% dass eine zufällig ausgewählte Person, der wir
+        {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% dass eine zufällig ausgewählte Person, der wir
         begegnen, infektiös ist ergeben sich die folgenden Wahrscheinlichkeiten, dass mindestends
         eine Person in einer Gruppe infektiös ist.</p>
 
     <p>Die Wahrscheinlichkeit dafür, dass mindestens eine von 10 Personen infektiös ist, beträgt
-        {{100 * Model.atLeastOnePositiveOutOf10 | number:'.1-2':'de'}}%.</p>
+        {{Model.isValid ? (100 * Model.atLeastOnePositiveOutOf10 | number:'.1-2':'de') : "X"}}%.</p>
     <p>Die Wahrscheinlichkeit dafür, dass mindestens eine von 50 Personen infektiös ist, beträgt
-        {{100 * Model.atLeastOnePositiveOutOf50 | number:'.1-2':'de'}}%.</p>
+        {{Model.isValid ? (100 * Model.atLeastOnePositiveOutOf50 | number:'.1-2':'de') : "X"}}%.</p>
 
-    <div class="chart-probabilities"></div>
+    <div [hidden]="!Model.isValid" class="chart-probabilities"></div>
 
     <p>Entsprechende Wahrscheinlichkeiten betreffen etwa ein Restaurant mit 50 Personen, ein öffentliches Verkehrsmittel
         mit 50 Personen oder auch 50 Personen, die im Verlauf des Tages getroffen werden.</p>

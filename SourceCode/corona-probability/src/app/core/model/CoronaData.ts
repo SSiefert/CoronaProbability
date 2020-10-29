@@ -1,5 +1,6 @@
 export class CoronaData {
 
+    isValid: boolean;
     sevenDayInzidenz: number;
     sevenDayUnfoundInzidenz: number;
     foundProbability: number;

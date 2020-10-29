@@ -21,6 +21,7 @@ export class CoronaService {
         
         _data.atLeastOnePositiveOutOf10 = this.atLeastOnePositive(10, _data.probabilityForUnfoundPositive);
         _data.atLeastOnePositiveOutOf50 = this.atLeastOnePositive(50, _data.probabilityForUnfoundPositive);
+		_data.isValid = true;
     };
 
     /**

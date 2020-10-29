@@ -27,7 +27,26 @@ export class StartComponent implements OnInit {
     this.OnInputChangeHandler();
   }
 
+  public IsSevenDayInzidenzValid() {
+    if (isNaN(this.Model.sevenDayInzidenz) || this.Model.sevenDayInzidenz < 0.1 || this.Model.sevenDayInzidenz > 100000) {
+      return false;
+    }
+    return true;
+  }
+
+  public IsFoundProbabilityValid() {
+    if (isNaN(this.Model.foundProbability) || this.Model.foundProbability < 0.1 || this.Model.foundProbability > 100) {
+      return false;
+    }
+    return true;
+  }
+
   public OnInputChangeHandler() {
+    if (!this.IsSevenDayInzidenzValid() || !this.IsFoundProbabilityValid()) {
+      this.Model.isValid = false;
+      return;
+    }
+
     this.coronaService.Calculate(this.Model, 1, 100);
 
     this.drawData();
