@@ -4,8 +4,8 @@
     <em>Im Folgenden eine kurze Überlegung zu der Wahrscheinlichkeit, eine mit Corona infizierte Person zu treffen. Es
         handelt sich dabei um eine stark vereinfachte Überlegung, welche keinen Anspruch erhebt, die tatsächliche
         Situation korrekt zu beschreiben. Es werden einige <a href="#assumptions">vereinfachende Annahmen</a>
-        getroffen. Für fundierte Informationen verweisen wir auf entsprechende Angebote, etwa des 
-		<a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html">Robert Koch Instituts</a>.</em>
+        getroffen. Für fundierte Informationen verweisen wir auf entsprechende Angebote, etwa des
+        <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html">Robert Koch Instituts</a>.</em>
 </header>
 
 <article>
@@ -13,33 +13,41 @@
     <p>Nehmen wir zunächst an, die 7-Tage-Inzidenz beträgt
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.sevenDayInzidenz" (ngModelChange)="OnInputChangeHandler()">
-        </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span>. Das heißt, 
-		dass in den letzten 7 Tagen {{Model.isValid ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro 100.000 Einwohner nachgewiesen wurden.
+        </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span>. Das
+        heißt,
+        dass in den letzten 7 Tagen {{Model.isValid ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro 100.000
+        Einwohner nachgewiesen wurden.
     </p>
     <p>Nehmen wir darüber hinaus an, dass
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.foundProbability" (ngModelChange)="OnInputChangeHandler()">
-        </mat-form-field><span [hidden]="IsFoundProbabilityValid()" style="color: red"> Ungültige Eingabe</span> Prozent aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
-        davon ausgehen, dass in den letzten 7 Tagen {{Model.isValid ? (Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de') : "X"}} Neuinfektionen pro 100.000
+        </mat-form-field><span [hidden]="IsFoundProbabilityValid()" style="color: red"> Ungültige Eingabe</span> Prozent
+        aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
+        davon ausgehen, dass in den letzten 7 Tagen
+        {{Model.isValid ? (Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de') : "X"}} Neuinfektionen pro 100.000
         Einwohner nicht als solche identifiziert
         wurden.
     </p>
 
     <p>Nehmen wir im Weiteren vereinfacht an, das jede infizierte Person für zwei Wochen infektiös ist. Somit ergeben
-        sich sehr vereinfacht {{Model.isValid ? (2 * Model.sevenDayUnfoundInzidenz | number:'.1-2':'de') : "X"}} infektiöse Personen pro 100.000 Einwohner welche
+        sich sehr vereinfacht {{Model.isValid ? (2 * Model.sevenDayUnfoundInzidenz | number:'.1-2':'de') : "X"}}
+        infektiöse Personen pro 100.000 Einwohner welche
         nicht als infektiös bekannt
-        sind. Dies entspricht einem Prozentsatz von {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2' :'de') : "X"}}%.
+        sind. Dies entspricht einem Prozentsatz von
+        {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2' :'de') : "X"}}%.
     </p>
 
     <p>Somit können wir vereinfacht davon ausgehen, dass die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person,
-        der wir begegnen, infektiös ist, {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% beträgt.</p>
+        der wir begegnen, infektiös ist,
+        {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% beträgt.</p>
 </article>
 
 <article>
     <h2>2. Mehrere Personen</h2>
 
     <p>Basierend auf der zuvor berechneten Wahrscheinlichkeit von
-        {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% dass eine zufällig ausgewählte Person, der wir
+        {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-2':'de') : "X"}}% dass eine zufällig
+        ausgewählte Person, der wir
         begegnen, infektiös ist ergeben sich die folgenden Wahrscheinlichkeiten, dass mindestends
         eine Person in einer Gruppe infektiös ist.</p>
 
@@ -69,7 +77,7 @@
 
 <article>
     <h2>Impressum</h2>
-	Simon Siefert und Alexander Frömmgen
+    Simon Siefert und Alexander Frömmgen
     <h3>Angaben gemäß § 5 TMG</h3>
     <address>
         Simon Siefert<br />
@@ -84,6 +92,16 @@
     <!-- <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
     teilzunehmen. -->
+    <h3>Haftungsausschluss</h3>
+    <b>
+        <p>Für das hier dargestellte Model und den dazugehörigen Wahrscheinlichkeiten & Risiken besteht kein Anspruch
+            auf Richtigkeit! Es sind reine "Gedankenspiele" und stellen in keinster Weise die reale Gefahr von Covid-19
+            und das Risiko einer Ansteckung dar!</p>
+        <p>
+            Der Sachverhalt Corona und das Infektionsgeschehen sind komplex. Halten Sie sich stets an die Anweisungen der
+            Behörden! Dieses Model ist keine Grundlage zur Risikoabschätzung!
+        </p>
+    </b>
     <h3>Haftung für Inhalte</h3>
     Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
     verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
