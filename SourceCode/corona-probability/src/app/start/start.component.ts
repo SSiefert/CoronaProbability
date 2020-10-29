@@ -13,7 +13,7 @@ export class StartComponent implements OnInit {
 
   private svg;
   private width: number = 500;
-  private height: number = 250;
+  private height: number = 300;
   private margin: number = 35;
 
   public Model: CoronaData = new CoronaData();
@@ -59,8 +59,11 @@ export class StartComponent implements OnInit {
       .append('svg')
       .attr('height', this.height + this.margin * 2)
       .attr('width', this.width + this.margin * 2)
+      .attr('viewBox', '0 0 ' + (this.width + this.margin * 2) + ' ' + (this.height + this.margin * 2))
+      .attr('preserveAspectRatio', 'xMinYMid meet')
+      .attr('x', '0')
       .append('g')
-      .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
+      .attr('transform', 'translate(' + this.margin + ', ' + this.margin + ')');
 
     var slices = [{
       id: 'Probability One Positive',

@@ -54,6 +54,10 @@
 
     /* Chart */
 
+    .corona svg {
+        width: 100%;
+    }
+
     .corona .axis line {
         stroke: #001e63;
         stroke-width: 0.7;
