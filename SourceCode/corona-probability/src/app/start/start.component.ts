@@ -107,7 +107,7 @@ export class StartComponent implements OnInit {
       .attr("dy", ".75em")
       .attr("y", 6)
       .style("text-anchor", "end")
-      .text("Wahrscheinlichkeit für infektiöse Person");
+      .text("Wahrscheinlichkeit (%) für infektiöse Person");
 
     // Output - line
     const lines = this.svg.selectAll("lines")
