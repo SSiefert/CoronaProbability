@@ -52,6 +52,11 @@
         margin-bottom: 0.5rem;
     }
 
+    .corona a {
+        color: #EEEEEE;
+        text-decoration: underline;
+    }
+
     /* Chart */
 
     .corona svg {
