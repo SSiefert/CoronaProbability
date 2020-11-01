@@ -1,7 +1,8 @@
 <header>
     <h1>Corona Wahrscheinlichkeiten</h1>
 
-    <em>Im Folgenden eine kurze Überlegung zu der Wahrscheinlichkeit, eine mit Corona infizierte und aktuell infektiöse Person zu treffen. Es
+    <em>Im Folgenden eine kurze Überlegung zu der Wahrscheinlichkeit, eine mit Corona infizierte und aktuell infektiöse
+        Person zu treffen. Es
         handelt sich dabei um eine stark vereinfachte Überlegung, welche keinen Anspruch erhebt, die tatsächliche
         Situation korrekt zu beschreiben. Es werden <a href="#assumptions">vereinfachende Annahmen</a>
         getroffen. Für fundierte Informationen verweisen wir auf entsprechende Angebote, etwa des
@@ -15,7 +16,8 @@
             <input matInput [(ngModel)]="Model.sevenDayInzidenz" (ngModelChange)="OnInputChangeHandler()">
         </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span>. Das
         heißt,
-        dass in den letzten 7 Tagen {{IsSevenDayInzidenzValid() ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro 100.000
+        dass in den letzten 7 Tagen {{IsSevenDayInzidenzValid() ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro
+        100.000
         Einwohner nachgewiesen wurden.
     </p>
     <p>Nehmen wir darüber hinaus an, dass
@@ -37,7 +39,8 @@
         {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-3' :'de') : "X"}}%.
     </p>
 
-    <p>Somit können wir vereinfacht davon ausgehen, dass die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person infektiös ist,
+    <p>Somit können wir vereinfacht davon ausgehen, dass die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person
+        infektiös ist,
         {{Model.isValid ? (100 * Model.probabilityForUnfoundPositive | number:'.1-3':'de') : "X"}}% beträgt.</p>
 </article>
 
@@ -62,16 +65,18 @@
 
 <article>
     <h2><span id="assumptions">Fehler und Vereinfachungen in den Annahmen</span></h2>
-    <p>Die vorliegende Rechnung und das zugrunde liegende Model sind sehr stark vereinfacht. Es werden nicht die tatsächlichen Wahrscheinlichkeiten
-	    ermittelt, sondern lediglich Abschätzungen mit Hilfe des Models und der dabei getroffenen Annahmen.
-        Dabei führen Vereinfachungen sowohl zu einer Überschätzung als auch einer Unterschätzung der tatsächlichen Wahrscheinlichkeit.
+    <p>Die vorliegende Rechnung und das zugrunde liegende Model sind sehr stark vereinfacht. Es werden nicht die
+        tatsächlichen Wahrscheinlichkeiten
+        ermittelt, sondern lediglich Abschätzungen mit Hilfe des Models und der dabei getroffenen Annahmen.
+        Dabei führen Vereinfachungen sowohl zu einer Überschätzung als auch einer Unterschätzung der tatsächlichen
+        Wahrscheinlichkeit.
         Im Folgenden einige der Vereinfachungen:
     <p>
     <ul>
         <li>Personen mit Symptomen isolieren sich möglicherweise auch ohne Test.</li>
         <li>Personen mit positivem Test waren möglicherweise bereits infektiös bevor sie sich isoliert haben.</li>
         <li>Es wird angenommen, dass jede Person die gleiche Wahrscheinlichkeit hat, infektiös zu sein.</li>
-		<li>Und viel mehr...</li>
+        <li>Und viel mehr...</li>
     </ul>
 </article>
 
@@ -85,6 +90,8 @@
         79102 Freiburg<br />
         GERMANY
     </address>
+    <p>Diese Webseite ist rein privat. Sie steht in keinerlei Zusammenhang mit den Arbeitgebern der Betreiber oder der
+        unternehmerischen Tätigkeit der Betreiber!</p>
     <h3>Kontakt</h3>
     <address>
         E-Mail: info@covid-probability.net<br />
@@ -98,7 +105,8 @@
             auf Richtigkeit! Sie sind reine "Gedankenspiele" und stellen in keinster Weise die reale Gefahr von Covid-19
             und das Risiko einer Ansteckung dar!</p>
         <p>
-            Der Sachverhalt Corona und das Infektionsgeschehen sind komplex. Halten Sie sich stets an die Anweisungen der
+            Der Sachverhalt Corona und das Infektionsgeschehen sind komplex. Halten Sie sich stets an die Anweisungen
+            der
             Behörden! Dieses Model ist keine Grundlage zur Risikoabschätzung!
         </p>
     </b>
