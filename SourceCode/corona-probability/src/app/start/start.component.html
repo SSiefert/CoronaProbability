@@ -14,7 +14,7 @@
     <p>Nehmen wir zunächst an, die 7-Tage-Inzidenz beträgt
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.sevenDayInzidenz" (ngModelChange)="OnInputChangeHandler()">
-        </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span>. Das
+        </mat-form-field><span [hidden]="IsSevenDayInzidenzValid()" style="color: red"> Ungültige Eingabe</span> (dieses Feld kann editiert werden). Das
         heißt,
         dass in den letzten 7 Tagen {{IsSevenDayInzidenzValid() ? Model.sevenDayInzidenz : "X"}} Neuinfektionen pro
         100.000
@@ -24,7 +24,7 @@
         <mat-form-field class="number">
             <input matInput [(ngModel)]="Model.foundProbability" (ngModelChange)="OnInputChangeHandler()">
         </mat-form-field><span [hidden]="IsFoundProbabilityValid()" style="color: red"> Ungültige Eingabe</span> Prozent
-        aller Neuinfektionen auch als solche nachgewiesen wurden. Entsprechend können wir
+        aller Neuinfektionen auch als solche nachgewiesen wurden (dieses Feld kann editiert werden). Entsprechend können wir
         davon ausgehen, dass in den letzten 7 Tagen
         {{Model.isValid ? (Model.sevenDayUnfoundInzidenz | number:'.1-2' :'de') : "X"}} Neuinfektionen pro 100.000
         Einwohner nicht als solche identifiziert
